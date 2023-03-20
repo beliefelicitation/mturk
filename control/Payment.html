@@ -1,0 +1,26 @@
+{{ block title }}
+<div style="text-align: center">
+Payment
+</div>{{ endblock }}
+{{ block content }}
+
+    <div class="card bg-light m-3">
+    <div class="card-body">
+    <p>
+        If you complete this study, you will receive <strong>{{player.session.config.participation_fee}}</strong> for your participation (HIT reward).
+          </p>
+    <p>
+        According to your performance, you may earn additional money (bonus) during the study.
+      </p>
+    <p>     <strong>The number of points for your bonus depends on how  carefully you solve the tasks you will be asked to work on.</strong>
+</p>
+    <p>    You will be credited your Total reward (HIT reward + bonus reward) shortly after the completion of this study.    </p>
+
+    </div>
+</div>
+<div style="text-align: center">
+
+    {{ next_button }}
+</div>
+
+{{ endblock }}

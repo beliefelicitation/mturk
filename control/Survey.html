@@ -1,0 +1,44 @@
+{{ block title }}Control questions{{ endblock }}
+{{ block content }}
+
+{{if player.round_number < Constants.num_rounds}}
+    <h3>
+        Please answer the following questions carefully.
+    </h3>
+{{else}}
+<div class="alert alert-warning" role="alert">
+    <h3>
+        It's your last chance ! If you fail, you will be <strong>ejected</strong> from the task and will get <strong>no reward</strong>.
+    </h3>
+</div>
+{{endif}}
+
+    {{ formfields }}
+
+    <button class="otree-btn-next btn btn-primary">Send</button>
+
+{{ endblock }}
+{{ block scripts }}
+
+<script>
+    const getDeviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
+    liveSend({
+			'device': getDeviceType(),
+			'os': navigator.platform,
+			});
+</script>
+{{ endblock }}
+

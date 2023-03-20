@@ -1,0 +1,59 @@
+{{ block title }}
+You did some mistake, here are the right answers.
+{{ endblock }}
+
+
+{{ block content }}
+
+
+        <p>{{ Constants.bonus_label }}</p>
+             {{if player.bonus|json == player.session.config.participation_fee|json}}
+            <div class="alert alert-success" role="alert">
+                You answered <strong>{{player.bonus|cu}}</strong>, your answer is  <strong>correct</strong>
+            </div>
+            {{else}}
+            <div class="alert alert-danger" role="alert">
+                You answered <strong>{{player.bonus|cu}}</strong>, but the correct answer is <strong>{{player.session.config.participation_fee}}</strong>
+            </div>
+            {{endif}}
+
+            <p>{{ Constants.earning_label }}</p>
+             {{if player.earning|json == player.session.config.screen_payoff|json}}
+            <div class="alert alert-success" role="alert">
+                You answered <strong>{{player.earning|cu}}</strong>, your answer is  <strong>correct</strong>
+            </div>
+            {{else}}
+            <div class="alert alert-danger" role="alert">
+                You answered <strong>{{player.earning|cu}}</strong>, but the correct answer is <strong>{{player.session.config.screen_payoff|cu}}</strong>
+            </div>
+            {{endif}}
+
+        <p>{{ Constants.score_label }}</p>
+             {{if player.score == False}}
+            <div class="alert alert-success" role="alert">
+                You answered <strong>{{player.score}}</strong>, your answer is  <strong>correct</strong>
+            </div>
+            {{else}}
+            <div class="alert alert-danger" role="alert">
+                You answered <strong>{{player.score}}</strong>, but the correct answer is <strong>{{False}}</strong>
+            </div>
+            {{endif}}
+
+        <p>{{ Constants.interaction_label  }}</p>
+             {{if player.interaction == player.participant.interface}}
+            <div class="alert alert-success" role="alert">
+                You answered <strong>{{interaction}}</strong>, your answer is  <strong>correct</strong>
+            </div>
+            {{else}}
+            <div class="alert alert-danger" role="alert">
+                You answered <strong>"{{interaction}}"</strong>, but the correct answer is <strong>"{{interface}}"</strong>
+            </div>
+            {{endif}}
+
+{{if player.round_number == number_of_trials}}
+<button class="otree-btn-next btn btn-primary">Try again (last chance)</button>
+{{else}}
+<button class="otree-btn-next btn btn-primary">Try again</button>
+{{endif}}
+
+{{ endblock }}

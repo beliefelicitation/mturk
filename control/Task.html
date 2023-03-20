@@ -1,0 +1,45 @@
+{{ block title }}
+<div style="text-align: center">
+Match the graph Task
+    </div>
+{{ endblock }}
+{{ block content }}
+<div class="alert alert-warning" role="alert" style="text-align: center;">
+   Read these instructions <strong>carefully</strong>. Your payment will depend on it. Moreover, You will later face control questions, and you will get no reward if you do not answer them correctly.
+</div>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+    <p>
+You will see in the top-right corner of your screen a small figure with a bar-graph in it.
+  </p>
+
+        <p>        Your task is to <strong>recreate</strong> the same <strong>bar-graph</strong>, but then in a larger frame in the middle of the screen.
+            You will receive <strong>money</strong> depending on how close the shape of your created bar-graph is to the <strong>target</strong> shown in the top-right corner of the screen.
+  </p>
+
+        <p><strong>How close</strong> your graphs is to the target picture is measured in <strong>percentage points</strong>, where you can attain a maximum score of 100%.
+               </p>
+
+        <p>Each screen is worth <strong>{{player.session.config.screen_payoff|cu}}</strong>.  </p>
+
+         <p>
+             This means that if you reach 100%, you earn <strong>20 USD cents</strong>; if 50%, <strong>10 cents</strong>; if 10%, <strong>2 cents</strong>.
+               Each 5% increase in your score is worth <strong>1 cent</strong>.
+    </p>
+         <p>
+             You will have to complete <strong>24 graph-matching tasks</strong>.
+             Your bonus is given by the sum of the amounts earned in each of the 24 tasks.
+               </p>
+
+        <p>A perfect score results in a bonus of <strong>4.8 USD</strong>.
+         </p>
+
+    </div>
+</div>
+<div style="text-align: center">
+
+    {{ next_button }}
+    </div>
+
+
+{{ endblock }}

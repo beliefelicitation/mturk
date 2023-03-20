@@ -1,0 +1,7 @@
+{{ block title }}<div style="text-align: center;">In the next phase, you’ll face now 12 screens with
+    {{if player.round_number < 12}}{{player.session.config.phase1_timout}}{{else}}{{player.session.config.phase2_timout}}{{endif}} seconds</div>{{ endblock }}
+{{ block content }}
+<div style="text-align: center;">
+    {{ next_button }}
+</div>
+{{ endblock }}
