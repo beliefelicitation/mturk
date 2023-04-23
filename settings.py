@@ -168,6 +168,6 @@ Here are all the treatments available
 """
 
 
-SECRET_KEY = environ.get('OTREE_SECRET_KEY')
+SECRET_KEY = environ.get('OTREE_SECRET_KEY') or 'kbohidoecdoatukacaanqthanapanhanan'
 
 INSTALLED_APPS = ['otree']
